@@ -48,45 +48,71 @@ export default class AddUser extends Component {
         })
     }
     render() {
-        const dogSizes = ["S", "M", "L", "XL"]
         return (
             <div className="form-wrapper">
-                <h3 className="form-type">Add a new Dog</h3>
+                <h3 className="form-type">Create an Account</h3>
                 <form onSubmit={this.handleSubmit} noValidate >
                     <input type="hidden" name="parent" value="PARENT-ID-PLACEHOLDER" />
                     <ul>
                         <li className="form-li" >
+                            <label htmlFor="email">Email:</label>
+                            <input type="text" id="email" name="email" placeholder="name@place.com" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="username">Username:</label>
+                            <input type="text" id="username" name="username" required placeholder="Username" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="password">Password:</label>
+                            <input type="text" id="password" name="password" placeholder="name@place.com" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="checkpassword">Re-enter Password:</label>
+                            <input type="text" id="checkpassword" name="checkpassword" placeholder="name@place.com" />
+                        </li>
+                        {/*<li className="form-li" >
                             <label htmlFor="firstName">First Name:</label>
                             <input type="text" id="firstName" name="firstName" min="0" placeholder="First Name" />
                         </li>
                         <li className="form-li" >
                             <label htmlFor="lastName">Last Name:</label>
-                            <input type="text" id="lastName" name="lastName" required placeholder="Last Name" />
+                            <input type="text" id="lastName" name="lastName" placeholder="Last Name" />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="username">Username:</label>
-                            <input type="number" id="username" name="username" placeholder="Username" />
+                            <label htmlFor="line1">Address Line 1:</label>
+                            <input type="text" id="line1" name="line1" placeholder="1234 Street Ave." />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="info">Describe your dog:</label>
-                            <textarea id="info" name="breed" rows="6" cols="50" placeholder="Favorite toy, quirks, special smells..."></textarea>
+                            <label htmlFor="line2">Address Line 2:</label>
+                            <input type="text" id="line2" name="line2" placeholder="Ste. 103" />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="size">Size:</label>
-                            <select type="text" id="size" name="size" placeholder="Password" >
-                                {
-                                    dogSizes.map(size => <option value={size}>{size}</option>)
-                                }
-
-                            </select>
+                            <label htmlFor="line3">Address Line 3:</label>
+                            <input type="text" id="line3" name="line3" placeholder="" />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="image">Enter Hosted Image URL:</label>
+                            <label htmlFor="city">City:</label>
+                            <input type="text" id="city" name="city" placeholder="City" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="state">State:</label>
+                            <input type="text" id="state" name="state" placeholder="DC" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="country">Country:</label>
+                            <input type="text" id="country" name="country" placeholder="US" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="zipcode">Zipcode:</label>
+                            <input type="text" id="zipcode" name="zipcode" placeholder="12345" />
+                        </li> */}
+                        <li className="form-li" >
+                            <label htmlFor="image">Enter Hosted Profile Pic URL:</label>
                             <input type="text" id="image" name="image" require placeholder="http://mydog.jpg" defaultValue="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" />
                         </li>
 
                         <li>
-                            <button className="form-button" type="submit">Add Dog</button>
+                            <button className="form-button" type="submit">Sign Up</button>
                             {this.state.inputError ? <p>Submit Error, Please check your form for required (*) items.</p> : <p>* Required</p>}
                             {this.state.formResults ? <p>{this.state.formResults.title} Successfully Created!</p> : <p></p>}
 

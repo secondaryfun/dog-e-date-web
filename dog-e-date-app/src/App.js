@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import AddDog from "./components/AddDog"
+import AddUser from "./components/AddUser"
 import Login from "./components/Login.js"
 
 class App extends Component {
@@ -68,7 +69,7 @@ class App extends Component {
               <Link to={"/signup/"} style={this.state.linkStyle} >
                 <button className="nav-button">SIGN UP</button>
               </Link>
-              <Link to={"/signup/add-dog"} style={this.state.linkStyle} >
+              <Link to={"/add-dog"} style={this.state.linkStyle} >
                 <button className="nav-button">ADD DOG</button>
               </Link>
             </div>
@@ -83,15 +84,13 @@ class App extends Component {
             <Route
               path="/signup/"
               render={() => (
-                null
-                // <Signup />
+                < AddUser dogList={this.state.dogList} />
               )}
             />
             <Route
               path="/dog-park/"
               render={() => (
                 null
-                // <DogPark dogList={this.state.dogList} />
               )}
             />
             <Route
@@ -109,7 +108,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/signup/add-dog/"
+              path="/add-dog/"
               render={() => (
                 <AddDog userInfo={this.state.userInfo} />
               )}
