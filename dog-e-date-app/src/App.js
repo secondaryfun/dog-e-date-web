@@ -46,19 +46,18 @@ class App extends Component {
               <h2>Dog-E-Date</h2>
             </span>
           </header>
-
-
-
           <div className="container">
-
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
-
-
             <div className="button-container">
-              <button className="Login">LOG IN</button>
-              <button className="SignUp">SIGN UP</button>
-              <button className="SignUp">That's One Sexy Dog</button>
-
+              <Link to={"/kennel/"} style={this.state.linkStyle} >
+                <button className="SignUp">That's One Sexy Dog</button>
+              </Link>
+              <Link to={"/login/"} style={this.state.linkStyle} >
+                <button className="Login">LOG IN</button>
+              </Link>
+              <Link to={"/signup/"} style={this.state.linkStyle} >
+                <button className="SignUp">SIGN UP</button>
+              </Link>
             </div>
 
             <Route
