@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route, Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./components/Login.js"
 
 class App extends Component {
 
@@ -16,7 +18,7 @@ class App extends Component {
 
 // componentDidMount(){
 
-//       let url = "https://dog.ceo/api/breeds/image/random/2ad32a52-5d71-4e75-bbf6-f49b53c77888";
+//       let url = "";
 
 //       fetch(url, {
 //         headers: {
@@ -40,20 +42,38 @@ render(){
     <div className="App">
    
     <header>
-      <span class="logo">
+      <span className="logo">
       <h2>Dog-E-Date</h2>
       </span>
     </header>
     
-    <div className="login-button">
-      <button className="Login">LOG IN</button>
-      </div>
+    
       
       <div className="container">
 
         <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
      
+     
+      <div className="button-container">
+      <button className="Login">LOG IN</button>
       <button className="SignUp">SIGN UP</button>
+      </div>
+    
+      <Route 
+        path="/login/"
+        render={ () => ( null
+        )
+        }
+      />
+
+      <Route 
+        path="/signup/"
+        render= { () => ( null
+        ) 
+        }
+      />
+
+     
 
       </div>
       
