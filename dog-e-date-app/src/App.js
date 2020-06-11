@@ -12,7 +12,6 @@ class App extends Component {
     this.state = {
       imgs: [],
       dogList: [],
-
     }
 
   };
@@ -40,56 +39,57 @@ class App extends Component {
 
 
     return (
-      <div className="App">
-
-        <header>
-          <span className="logo">
-            <h2>Dog-E-Date</h2>
-          </span>
-        </header>
-
-
-
-        <div className="container">
-
-          <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
+      <div className="body-wrapper">
+        <div className="body-overlay" >
+          <header className="header" >
+            <span className="header__logo">
+              <h2>Dog-E-Date</h2>
+            </span>
+          </header>
 
 
-          <div className="button-container">
-            <button className="Login">LOG IN</button>
-            <button className="SignUp">SIGN UP</button>
-            <button className="SignUp">That's One Sexy Dog</button>
+
+          <div className="container">
+
+            <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
+
+
+            <div className="button-container">
+              <button className="Login">LOG IN</button>
+              <button className="SignUp">SIGN UP</button>
+              <button className="SignUp">That's One Sexy Dog</button>
+
+            </div>
+
+            <Route
+              path="/login/"
+              render={() => (
+                <Login />
+              )
+              }
+            />
+
+            <Route
+              path="/signup/"
+              render={() => (
+                null
+              )
+              }
+            />
+            <Route
+              path="/kennel/"
+              render={() => (
+                null
+                // <Kennel dogList={this.state.dogList} />
+              )
+              }
+            />
+
+
 
           </div>
 
-          <Route
-            path="/login/"
-            render={() => (
-              null
-            )
-            }
-          />
-
-          <Route
-            path="/signup/"
-            render={() => (
-              null
-            )
-            }
-          />
-          <Route
-            path="/kennel/"
-            render={() => (
-              null
-              // <Kennel dogList={this.state.dogList} />
-            )
-            }
-          />
-
-
-
         </div>
-
       </div>
     );
   }
