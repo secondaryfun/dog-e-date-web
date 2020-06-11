@@ -50,20 +50,20 @@ class App extends Component {
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
               <Link to={"/dog-park/"} style={this.state.linkStyle} >
-                <button className="SignUp">Dog Park</button>
+                <button className="nav-button">Dog Park</button>
               </Link>
 
               <Link to={"/kennel/"} style={this.state.linkStyle} >
-                <button className="Profile Page">Profile</button>
+                <button className="nav-button Page">Profile</button>
               </Link>
               <Link to={"/barks/"} style={this.state.linkStyle} >
-                <button className="barks Page">Barks</button>
+                <button className="nav-button Page">Barks</button>
               </Link>
               <Link to={"/login/"} style={this.state.linkStyle} >
-                <button className="Login">LOG IN</button>
+                <button className="nav-button">LOG IN</button>
               </Link>
               <Link to={"/signup/"} style={this.state.linkStyle} >
-                <button className="SignUp">SIGN UP</button>
+                <button className="nav-button">SIGN UP</button>
               </Link>
             </div>
 
