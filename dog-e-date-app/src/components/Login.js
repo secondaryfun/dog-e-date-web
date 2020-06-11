@@ -9,7 +9,7 @@ export default class App extends Component {
 
         this.state = {
             inputError: false,
-
+            userCredentials: {},
         }
     };
 
@@ -32,28 +32,21 @@ export default class App extends Component {
             return;
         }
         console.log(data)
-        // const url = ""
-        // fetch(url, {
-        //     method: "get",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: data
-        // }).then(res => res.json()).then(res => {
-        //     console.log(res)
-        //     this.setState({ formResults: res, submitFormSuccessful: true })
-        // }).catch(err => {
-        //     console.log(err)
-        //     this.setState({ formResults: err, submitFormSuccessful: false })
-        // })
+        const url = "https://dog-e-date.herokuapp.com/user/" + data.username
+        fetch(url).then(res => res.json()).then(res => {
+            console.log(res)
+            this.setState({ userCredentials: res, submitFormSuccessful: true })
+        }).catch(err => {
+            console.log(err)
+            this.setState({ submitFormSuccessful: false })
+        })
     }
     render() {
-
+        console.log(this.state.formResults)
         return (
             <div className="form-wrapper">
                 <h3 className="form-type">Enter Information to Login</h3>
                 <form onSubmit={this.handleSubmit} noValidate >
-                    <input type="hidden" name="primary_category" value="user" />
                     <ul>
                         <li className="form-li" >
                             <label htmlFor="username">Enter Username</label>
