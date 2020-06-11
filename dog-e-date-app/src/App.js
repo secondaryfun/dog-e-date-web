@@ -6,7 +6,11 @@ import AddDog from "./components/AddDog";
 import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
+<<<<<<< HEAD
 import Barks from "./components/Barks.js"
+=======
+import GetFormData from './FormData'
+>>>>>>> refactoring handlesubmit
 
 class App extends Component {
 
@@ -16,14 +20,13 @@ class App extends Component {
     this.state = {
       imgs: [],
       dogList: [],
+      inputError: false,
+      userCredentials: {},
     }
 
   };
-
   componentDidMount() {
-
     this.getData("dog");
-
   }
   getData = (resource) => {
     let url = "https://dog-e-date.herokuapp.com/" + resource;
@@ -41,6 +44,25 @@ class App extends Component {
       .catch(err => {
         console.log("Error", err);
       });
+  }
+
+  handleLoginSubmit = (e) => {
+    e.preventDefault()
+    let data = GetFormData(e)
+
+    if (!e.target.checkValidity()) {
+      this.setState({ inputError: true })
+      return;
+    }
+    console.log(data)
+    const url = "https://dog-e-date.herokuapp.com/user/" + data.username
+    fetch(url).then(res => res.json()).then(res => {
+      console.log(res)
+      this.setState({ userCredentials: res, submitFormSuccessful: true })
+    }).catch(err => {
+      console.log(err)
+      this.setState({ submitFormSuccessful: false })
+    })
   }
   render() {
 
@@ -80,7 +102,7 @@ class App extends Component {
             <Route
               path="/login/"
               render={() => (
-                <Login />
+                <Login handleSubmit={this.handleLoginSubmit} />
               )}
             />
 
