@@ -85,7 +85,7 @@ class App extends Component {
               path="/dog-park/"
               render={() => (
                 null
-                // <DogPark dogList={this.state.dogList} />
+                <DogPark dogList={this.state.dogList} />
               )}
             />
             <Route
