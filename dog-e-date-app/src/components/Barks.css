@@ -1,0 +1,62 @@
+.content {
+    margin-right: 1rem;
+    width: 1000px;
+    margin: 1rem auto;
+    background: rgba(173, 173, 173, 0.897);
+    border-radius: 8px;
+    display: grid;
+    grid-template-rows: 50px 90px 90px 50px;
+    grid-template-columns: 90px 450px 450px;
+     grid-template-areas:
+        "title title title"
+        "matches messages messages"
+        "matches messages messages"
+        "matches reply reply";
+}
+
+.matches {
+    grid-area: matches;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    grid-area: title;
+}
+
+.messages {
+    grid-area: messages;
+}
+
+.text {
+    height: 25px;
+}
+
+.from {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.to {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.reply {
+    grid-area: reply;
+    padding-top: 5px;
+}
+
+.your-text {
+    width: 80%;
+    height: 30px;
+}
+
+.send {
+    width: 10%;
+    height: 30px;
+}

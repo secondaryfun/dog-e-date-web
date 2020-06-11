@@ -6,6 +6,7 @@ import AddDog from "./components/AddDog";
 import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
+import Barks from "./components/Barks.js"
 
 class App extends Component {
 
@@ -106,8 +107,7 @@ class App extends Component {
             <Route
               path="/barks/"
               render={() => (
-                null
-                // <BarkDashboard userInfo={this.state.userInfo} />
+                <Barks />
               )}
             />
             <Route
