@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
+import AddDog from "./components/AddDog"
 import Login from "./components/Login.js"
 
 class App extends Component {
@@ -18,7 +19,10 @@ class App extends Component {
 
   componentDidMount() {
 
-    let url = "https://dog-e-date.herokuapp.com/dog";
+
+  }
+  getData = (resource) => {
+    let url = "https://dog-e-date.herokuapp.com/" + resource;
 
     fetch(url, {
       headers: {
@@ -34,7 +38,6 @@ class App extends Component {
         console.log("Error", err);
       });
   }
-
   render() {
 
 
@@ -49,7 +52,7 @@ class App extends Component {
           <div className="container">
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
-              <Link to={"/dog-park/"} style={this.state.linkStyle} >
+              <Link to={"/"} style={this.state.linkStyle} >
                 <button className="nav-button">Dog Park</button>
               </Link>
 
@@ -64,6 +67,9 @@ class App extends Component {
               </Link>
               <Link to={"/signup/"} style={this.state.linkStyle} >
                 <button className="nav-button">SIGN UP</button>
+              </Link>
+              <Link to={"/signup/add-dog"} style={this.state.linkStyle} >
+                <button className="nav-button">ADD DOG</button>
               </Link>
             </div>
 
@@ -100,6 +106,12 @@ class App extends Component {
               render={() => (
                 null
                 // <BarkDashboard userInfo={this.state.userInfo} />
+              )}
+            />
+            <Route
+              path="/signup/add-dog/"
+              render={() => (
+                <AddDog userInfo={this.state.userInfo} />
               )}
             />
 
