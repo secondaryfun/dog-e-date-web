@@ -50,14 +50,14 @@ class App extends Component {
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
               <Link to={"/dog-park/"} style={this.state.linkStyle} >
-                <button className="SignUp">That's One Sexy Dog</button>
+                <button className="SignUp">Dog Park</button>
               </Link>
 
               <Link to={"/kennel/"} style={this.state.linkStyle} >
-                <button className="Profile Page">SIGN UP</button>
+                <button className="Profile Page">Profile</button>
               </Link>
               <Link to={"/barks/"} style={this.state.linkStyle} >
-                <button className="barks Page">SIGN UP</button>
+                <button className="barks Page">Barks</button>
               </Link>
               <Link to={"/login/"} style={this.state.linkStyle} >
                 <button className="Login">LOG IN</button>
