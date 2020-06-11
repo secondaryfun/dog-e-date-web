@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login.js"
+import Barks from "./components/Barks.js"
 
 class App extends Component {
 
@@ -98,8 +99,7 @@ class App extends Component {
             <Route
               path="/barks/"
               render={() => (
-                null
-                // <BarkDashboard userInfo={this.state.userInfo} />
+                <Barks />
               )}
             />
 
