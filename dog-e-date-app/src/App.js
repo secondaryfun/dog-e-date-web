@@ -21,6 +21,7 @@ class App extends Component {
 
   componentDidMount() {
 
+    this.getData("dog");
 
   }
   getData = (resource) => {
@@ -54,7 +55,7 @@ class App extends Component {
           <div className="container">
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
-              <Link to={"/"} style={this.state.linkStyle} >
+              <Link to={"/dog-park/"} style={this.state.linkStyle} >
                 <button className="nav-button">Dog Park</button>
               </Link>
 
