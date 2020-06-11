@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import AddDog from "./components/AddDog"
-import Login from "./components/Login.js"
+import AddDog from "./components/AddDog";
+import Login from "./components/Login.js";
+import DogPark from "./components/DogPark.js";
 
 class App extends Component {
 
@@ -90,7 +91,7 @@ class App extends Component {
             <Route
               path="/dog-park/"
               render={() => (
-                null
+                // null
                 <DogPark dogList={this.state.dogList} />
               )}
             />
