@@ -49,8 +49,15 @@ class App extends Component {
           <div className="container">
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
-              <Link to={"/kennel/"} style={this.state.linkStyle} >
+              <Link to={"/dog-park/"} style={this.state.linkStyle} >
                 <button className="SignUp">That's One Sexy Dog</button>
+              </Link>
+
+              <Link to={"/kennel/"} style={this.state.linkStyle} >
+                <button className="Profile Page">SIGN UP</button>
+              </Link>
+              <Link to={"/barks/"} style={this.state.linkStyle} >
+                <button className="barks Page">SIGN UP</button>
               </Link>
               <Link to={"/login/"} style={this.state.linkStyle} >
                 <button className="Login">LOG IN</button>
@@ -64,24 +71,36 @@ class App extends Component {
               path="/login/"
               render={() => (
                 <Login />
-              )
-              }
+              )}
             />
 
             <Route
               path="/signup/"
               render={() => (
                 null
-              )
-              }
+                // <Signup />
+              )}
+            />
+            <Route
+              path="/dog-park/"
+              render={() => (
+                null
+                // <DogPark dogList={this.state.dogList} />
+              )}
             />
             <Route
               path="/kennel/"
               render={() => (
                 null
-                // <Kennel dogList={this.state.dogList} />
-              )
-              }
+                // <Kennel userInfo={this.state.userInfo} />
+              )}
+            />
+            <Route
+              path="/barks/"
+              render={() => (
+                null
+                // <BarkDashboard userInfo={this.state.userInfo} />
+              )}
             />
 
 
