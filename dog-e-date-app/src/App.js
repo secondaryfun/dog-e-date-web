@@ -69,7 +69,7 @@ class App extends Component {
               <Link to={"/signup/"} style={this.state.linkStyle} >
                 <button className="nav-button">SIGN UP</button>
               </Link>
-              <Link to={"/signup/add-dog"} style={this.state.linkStyle} >
+              <Link to={"/add-dog"} style={this.state.linkStyle} >
                 <button className="nav-button">ADD DOG</button>
               </Link>
             </div>
@@ -84,15 +84,18 @@ class App extends Component {
             <Route
               path="/signup/"
               render={() => (
-                null
-                // <Signup />
+                < AddUser dogList={this.state.dogList} />
               )}
             />
             <Route
               path="/dog-park/"
               render={() => (
+<<<<<<< HEAD
                 // null
                 <DogPark dogList={this.state.dogList} />
+=======
+                null
+>>>>>>> abdf164002d46a70f91912fd3453895681a005e3
               )}
             />
             <Route
@@ -110,7 +113,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/signup/add-dog/"
+              path="/add-dog/"
               render={() => (
                 <AddDog userInfo={this.state.userInfo} />
               )}

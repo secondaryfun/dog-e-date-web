@@ -49,7 +49,7 @@ export default class AddDog extends Component {
         })
     }
     render() {
-        const dogSizes = ["S", "M", "L", "XL"]
+        const dogSizes = [{ size: "S" }, { size: "M" }, { size: "L" }, { size: "XL" }]
         return (
             <div className="form-wrapper">
                 <h3 className="form-type">Add a new Dog</h3>
@@ -76,7 +76,7 @@ export default class AddDog extends Component {
                             <label htmlFor="size">Size:</label>
                             <select type="text" id="size" name="size" placeholder="Password" >
                                 {
-                                    dogSizes.map(size => <option value={size}>{size}</option>)
+                                    dogSizes.map(size => <option value={size.size}>{size.size}</option>)
                                 }
 
                             </select>
