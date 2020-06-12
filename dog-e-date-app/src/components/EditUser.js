@@ -18,7 +18,7 @@ export default class AddUser extends Component {
     }
     getUserData = () => {
         console.log(this.props.user)
-        let url = "https://dog-e-date.herokuapp.com/user/" + this.props.user.username
+        let url = "http://dog-e-date.herokuapp.com/user/" + this.props.user.username
 
         fetch(url, {
             headers: {
@@ -94,12 +94,39 @@ export default class AddUser extends Component {
                         <li className="form-li" >
                             <label htmlFor="checkpassword">Re-enter New Password:</label>
                             <input type="text" id="checkpassword" name="checkpassword" placeholder="Enter New Password" />
+<<<<<<< HEAD
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="password">Old Password:</label>
+                            <input type="text" id="password" name="password" placeholder="Enter old password" />
+=======
+>>>>>>> dev
                         </li>
                         <li className="form-li" >
                             <label htmlFor="password">Old Password:</label>
                             <input type="text" id="password" name="password" placeholder="Enter old password" />
                         </li>
-                        {/*<li className="form-li" >
+
+                        <li className="form-li" >
+                            <label htmlFor="userImage">Enter Hosted Profile Pic URL:</label>
+                            <input type="text" id="userImage" name="userImage" require placeholder={user ? user.userImage : ""} defaultValue={user ? user.userImage : ""} />
+                        </li>
+
+                        <li>
+                            <button className="form-button" type="submit">Sign Up</button>
+                            {this.state.inputError ? <p>Submit Error, Please check your form for required (*) items.</p> : <p>* Required</p>}
+                            {this.state.formResults ? <p>{this.state.formResults.title} Successfully Created!</p> : <p></p>}
+
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        )
+
+    }
+}
+
+{/*<li className="form-li" >
                             <label htmlFor="firstName">First Name:</label>
                             <input type="text" id="firstName" name="firstName" min="0" placeholder="First Name" />
                         </li>
@@ -135,21 +162,3 @@ export default class AddUser extends Component {
                             <label htmlFor="zipcode">Zipcode:</label>
                             <input type="text" id="zipcode" name="zipcode" placeholder="12345" />
                         </li> */}
-                        <li className="form-li" >
-                            <label htmlFor="image">Enter Hosted Profile Pic URL:</label>
-                            <input type="text" id="image" name="image" require placeholder="http://mydog.jpg" defaultValue="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" />
-                        </li>
-
-                        <li>
-                            <button className="form-button" type="submit">Sign Up</button>
-                            {this.state.inputError ? <p>Submit Error, Please check your form for required (*) items.</p> : <p>* Required</p>}
-                            {this.state.formResults ? <p>{this.state.formResults.title} Successfully Created!</p> : <p></p>}
-
-                        </li>
-                    </ul>
-                </form>
-            </div>
-        )
-
-    }
-}

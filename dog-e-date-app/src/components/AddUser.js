@@ -111,12 +111,12 @@ export default class AddUser extends Component {
                             <input type="text" id="image" name="image" require placeholder="http://mydog.jpg" defaultValue="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" />
                         </li>
 
-                        <li>
+                        <ul>
                             <button className="form-button" type="submit">Sign Up</button>
                             {this.state.inputError ? <p>Submit Error, Please check your form for required (*) items.</p> : <p>* Required</p>}
                             {this.state.formResults ? <p>{this.state.formResults.title} Successfully Created!</p> : <p></p>}
 
-                        </li>
+                        </ul>
                     </ul>
                 </form>
             </div>

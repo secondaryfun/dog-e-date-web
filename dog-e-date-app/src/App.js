@@ -26,7 +26,11 @@ class App extends Component {
     this.getUserData()
   }
   getUserData = () => {
+<<<<<<< HEAD
     let url = "https://dog-e-date.herokuapp.com/user/" + "toddpacker"
+=======
+    let url = "http://dog-e-date.herokuapp.com/user/" + "toddpacker"
+>>>>>>> dev
 
     fetch(url, {
       headers: {
@@ -52,7 +56,7 @@ class App extends Component {
       return;
     }
     console.log(data.username)
-    const url = "https://dog-e-date.herokuapp.com/user/" + data.username
+    const url = "http://dog-e-date.herokuapp.com/user/" + data.username
     fetch(url).then(res => res.json()).then(res => {
       console.log(res)
       this.setState({ user: res, loginAttempt: data, submitFormSuccessful: true })
@@ -101,8 +105,9 @@ class App extends Component {
                 <button className="nav-button">ADD DOG</button>
               </Link>
               <Link to={"/update-user"} style={this.state.linkStyle} >
-                <button className="nav-button">Update User</button>
+                <button className="nav-button">UPDATE USER</button>
               </Link>
+
             </div>
 
             <Route
@@ -143,7 +148,7 @@ class App extends Component {
             <Route
               path="/bark/"
               render={() => (
-                <Barks />
+                <Barks user={this.state.user} />
               )}
             />
             <Route
