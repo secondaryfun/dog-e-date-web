@@ -59,30 +59,30 @@ export default class Kennel extends Component {
     }
   }
   componentDidMount() {
-    this.setState({
-      dogListFeed: dogListSample,
-    }, () => {
-      this.setState({ currentDog: this.state.dogListFeed[this.getNext()] })
-    })
-
-    // let url = "https://dog-e-date.herokuapp.com/dog"
-
-    // fetch(url, {
-    //   headers: {
-    //     Accept: "application/json",
-    //   }
+    // this.setState({
+    //   dogListFeed: dogListSample,
+    // }, () => {
+    //   this.setState({ currentDog: this.state.dogListFeed[this.getNext()] })
     // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data)
-    //     this.setState({
-    //       dogListFeed: data,
-    //       currentDog: data[0]
-    //     })
-    //   })
-    //   .catch(err => {
-    //     console.log("Error", err);
-    //   });
+
+    let url = "https://dog-e-date.herokuapp.com/dog"
+
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        this.setState({
+          dogListFeed: data,
+          currentDog: data[0]
+        })
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
   }
   handleIgnore = e => {
     this.updateDog(false)
