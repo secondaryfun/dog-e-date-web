@@ -133,19 +133,19 @@ export default class Kennel extends Component {
         <div className="modal__info-box">
           <header className="modal__info-box__header">
             <Link to={"/kennel/"} style={this.state.linkStyle} >
-              <div className="icon profile">Kennel</div>
+              <div className="icon_kennel">Kennel</div>
             </Link>
             <Link to={"/"} style={this.state.linkStyle} >
-              <div className="icon homepage">Home</div>
+              <div className="icon_homepage">Home</div>
             </Link>
             <Link to={"/bark/"} style={this.state.linkStyle} >
-              <div className="icon chat">Bark</div>
+              <div className="icon_chat">Bark</div>
             </Link>
           </header>
           <SliderImage dog={currentDog} />
           <footer className="modal__info-box__footer">
-            <div className="icon like" onClick={this.handleIgnore} >-</div>
-            <div className="icon like" onClick={this.handleLike} >+</div>
+            <div className="icon_ignore" onClick={this.handleIgnore} >❌</div>
+            <div className="icon_like" onClick={this.handleLike} >✅</div>
           </footer>
         </div>
       </div>
