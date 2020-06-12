@@ -52,7 +52,7 @@ export default class Kennel extends Component {
       currentDog: {},
       defaultDog: {
         "_id": "5ee29deaeb78be000433283c",
-        name: "Dog-e-Date Stand-In",
+        name: "Goofers",
         image: "https://www.keystonepuppies.com/wp-content/uploads/2018/10/Mastiff-Mix-Category.jpg",
         tagline: "His eyes will steal your soul..."
       }
@@ -133,19 +133,19 @@ export default class Kennel extends Component {
         <div className="modal__info-box">
           <header className="modal__info-box__header">
             <Link to={"/kennel/"} style={this.state.linkStyle} >
-              <div className="icon">Kennel</div>
+              <div className="icon icon_kennel">Kennel</div>
             </Link>
             <Link to={"/"} style={this.state.linkStyle} >
-              <div className="icon_homepage">Home</div>
+              <div className="icon icon_homepage">Home</div>
             </Link>
             <Link to={"/bark/"} style={this.state.linkStyle} >
-              <div className="icon_chat">Bark</div>
+              <div className="icon icon_chat">Bark</div>
             </Link>
           </header>
           <SliderImage dog={currentDog} />
           <footer className="modal__info-box__footer">
-            <div className="icon_ignore" onClick={this.handleIgnore} >❌</div>
-            <div className="icon_like" onClick={this.handleLike} >✅</div>
+            <div className="icon icon_ignore" onClick={this.handleIgnore} >❌</div>
+            <div className="icon icon_like" onClick={this.handleLike} >✅</div>
           </footer>
         </div>
       </div>

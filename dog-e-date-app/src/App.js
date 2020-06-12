@@ -117,14 +117,14 @@ class App extends Component {
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
               <Link to={"/dog-park/"} style={this.state.linkStyle} >
-                <button className="nav-button">Dog Park</button>
+                <button className="nav-button">DOG PARK</button>
               </Link>
 
               <Link to={"/kennel/"} style={this.state.linkStyle} >
-                <button className="nav-button Page">Profile</button>
+                <button className="nav-button Page">PROFILE</button>
               </Link>
               <Link to={"/bark/"} style={this.state.linkStyle} >
-                <button className="nav-button Page">Barks</button>
+                <button className="nav-button Page">BARKS</button>
               </Link>
               <Link to={"/login/"} style={this.state.linkStyle} >
                 <button className="nav-button">LOG IN</button>
