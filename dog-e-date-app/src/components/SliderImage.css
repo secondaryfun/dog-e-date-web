@@ -1,0 +1,22 @@
+.slider-image {
+    height: 75%;
+    width: 100%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 15px;
+}
+
+.slider-image-title {
+    background: rgba(0, 0, 0, 0.452);
+    border-radius: 15px;
+    position: relative;
+    top: 85%;
+}
+.slider-image-tagline {
+    background: rgba(0, 0, 0, 0.472);
+    border-radius: 15px;
+    position: relative;
+    top: 82%;
+    font-size: 1rem;
+}
