@@ -29,14 +29,19 @@
 }
 
 .modal__info-box {
-    width: 35vh;
+    width: 40vh;
     height: 80vh;
     position: absolute;
     top: 10vh;
     margin: 0 auto;
-    background: white;
+    background: rgb(15, 15, 15);
     box-shadow: 15px 30px 30px rgba(0, 0, 0, .3);
     border-radius: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    border: 10px solid rgba(2, 2, 2, 0.164);
+
 }
 
 .modal__info-box__body {
@@ -55,6 +60,7 @@
   align-items: center;
   justify-content: center;
   padding: 2px;
+  margin: 5px;
 }
 .icon:hover {
   background: rgb(122, 121, 121);

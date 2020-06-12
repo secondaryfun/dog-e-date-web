@@ -45,12 +45,9 @@ let dogList = [
   },
 ]
 
-
 class App extends Component {
-
   constructor(props) {
     super(props);
-
     this.state = {
       imgs: [],
       dogList: [],
@@ -58,10 +55,10 @@ class App extends Component {
       user: {},
       loginAttempt: {}
     }
-
-  };
+  }
   componentDidMount() {
     this.getData("dog");
+    this.setState({ user: "harryloveshounds" })
   }
   getData = (resource) => {
     let url = "https://dog-e-date.herokuapp.com/" + resource;
@@ -103,8 +100,6 @@ class App extends Component {
   //   userPass = this.state.user.
   // }
   render() {
-    console.log(this.state.dogList)
-
     return (
       <div className="body-wrapper">
         <div className="body-overlay" >
@@ -123,7 +118,7 @@ class App extends Component {
               <Link to={"/kennel/"} style={this.state.linkStyle} >
                 <button className="nav-button Page">Profile</button>
               </Link>
-              <Link to={"/barks/"} style={this.state.linkStyle} >
+              <Link to={"/bark/"} style={this.state.linkStyle} >
                 <button className="nav-button Page">Barks</button>
               </Link>
               <Link to={"/login/"} style={this.state.linkStyle} >
@@ -165,7 +160,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/barks/"
+              path="/bark/"
               render={() => (
                 <Barks />
               )}

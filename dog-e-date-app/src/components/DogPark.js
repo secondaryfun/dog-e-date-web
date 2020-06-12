@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './DogPark.css';
 import SliderImage from './SliderImage'
 
-let dogList = [
+let dogListSample = [
   {
     "_id": "5ee25a4e3389db00042d9499",
     "name": "Spot",
@@ -42,74 +43,96 @@ let dogList = [
 ]
 
 export default class App extends Component {
-
   constructor(props) {
     super(props);
-
     this.state = {
       likes: 0,
       imgs: [],
       dogList: [],
       updated: false,
       currentDog: {},
+      index: 0,
     }
   }
   componentDidMount() {
-    this.getData("dog");
-    this.setState({ dogList: dogList, currentDog: dogList[0] })
-
-  }
-  getData = (resource) => {
-    let url = "https://dog-e-date.herokuapp.com/" + resource;
-
-    fetch(url, {
-      headers: {
-        Accept: "application/json",
-      }
+    this.setState({
+      dogList: dogListSample,
+    }, () => {
+      this.setState({ currentDog: this.state.dogList[this.getNext()] })
     })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ dogList: data });
-      })
-      .catch(err => {
-        console.log("Error", err);
-      });
+
+    // let url = "https://dog-e-date.herokuapp.com/dog"
+
+    // fetch(url, {
+    //   headers: {
+    //     Accept: "application/json",
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     this.setState({
+    //       dogList: data,
+    //       currentDog: data[0]
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.log("Error", err);
+    //   });
   }
-
-  updateLikes() {
-
-    if (!this.state.updated) {
-      this.setState((prevState, props) => {
-        return {
-          likes: prevState.likes + 1,
-          updated: true
-        };
-      });
-    } else {
-
-      this.setState((prevState, props) => {
-        return {
-          likes: prevState.likes + 1,
-          updated: false
-        };
-      });
-    }
+  handleIgnore = e => {
+    this.setState({
+      currentDog: this.state.dogList[this.getNext()]
+    })
   }
+  handleLike = e => {
+    this.setState({
+      currentDog: this.state.dogList[this.getNext()]
+    })
+  }
+  // updateLike = (like) => {
+  //   let type
+  //   like ? type = "likes" : "ignores"
+  //   const url = "https://dog-e-date.herokuapp.com/dog" + this.props.course["_id"]
+  //   fetch(url, {
+  //     method: "put",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: data
+  //   }).then(res => res.json()).then(res => {
+  //     console.log(res)
+  //     this.setState({ formResults: res, submitFormSuccessful: true })
+  //   }).catch(err => {
+  //     console.log(err)
+  //     this.setState({ formResults: err, submitFormSuccessful: false })
+  //   })
+  // }
 
+
+  getNext = () => {
+    let i = Math.floor(this.state.dogList.length * Math.random())
+    return i
+  }
   render() {
-    console.log(this.props.dogList)
     return (
       <div className="modal-overlay" >
         <div className="modal__info-box">
           <header className="modal__info-box__header">
-            <div className="icon profile">Kennel</div>
-            <div className="icon homepage">Home</div>
-            <div className="icon chat">Chat</div>
+            <Link to={"/kennel/"} style={this.state.linkStyle} >
+              <div className="icon profile">Kennel</div>
+            </Link>
+            <Link to={"/"} style={this.state.linkStyle} >
+              <div className="icon homepage">Home</div>
+            </Link>
+            <Link to={"/bark/"} style={this.state.linkStyle} >
+              <div className="icon chat">Bark</div>
+            </Link>
           </header>
           <SliderImage dog={this.state.currentDog} />
           <footer className="modal__info-box__footer">
-            <div className="icon like">+</div>
-            <div className="icon like">-</div>
+            <div className="icon like" onClick={this.handleIgnore} >-</div>
+            <div className="icon like" onClick={this.handleLike} >+</div>
           </footer>
         </div>
       </div>
