@@ -6,7 +6,7 @@ import AddDog from "./components/AddDog";
 import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
-import Barks from "./components/Barks.js"
+import Barks from "./components/Barks.js";
 
 class App extends Component {
 
@@ -16,9 +16,11 @@ class App extends Component {
     this.state = {
       imgs: [],
       dogList: [],
+      
     }
 
   };
+
 
   componentDidMount() {
 
@@ -56,10 +58,11 @@ class App extends Component {
           <div className="container">
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
+
               <Link to={"/dog-park/"} style={this.state.linkStyle} >
                 <button className="nav-button">Dog Park</button>
               </Link>
-
+            
               <Link to={"/kennel/"} style={this.state.linkStyle} >
                 <button className="nav-button Page">Profile</button>
               </Link>

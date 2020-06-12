@@ -11,10 +11,20 @@ export default class App extends Component {
                 likes: 0,
                 imgs: [],
                 dogList: [],
-                updated: false
+                updated: false,
+                
               }
               this.updateLikes = this.updateLikes.bind(this);
             }
+            showModal = (event) => {
+                this.setState({ show: true});
+              }
+            
+              // This state is togglable via the showModal and hideModal properties
+              
+              hideModal = (event) => {
+                this.setState({ show: false });
+              }
           
             updateLikes() {
           
@@ -29,24 +39,24 @@ export default class App extends Component {
           
                 this.setState((prevState, props) => {
                   return {
-                    likes: prevState.likes - 1,
+                    likes: prevState.likes + 1,
                     updated: false
                   };
                 });
               }
-          
-          
             }
           
             render(){
                 console.log(this.props.dogList)
               return(
                 <div>
+                
                   <button onClick={this.updateLikes}>Like</button>
+                
                   <p>{this.state.likes}</p>
-
                   <p>{this.props.dogList}</p>
-                  <h1>Hello</h1>
+                 
+    
                 </div>
                 
                 
