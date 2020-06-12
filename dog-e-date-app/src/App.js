@@ -167,8 +167,6 @@ class App extends Component {
               )}
             />
 
-
-
           </div>
 
         </div>
