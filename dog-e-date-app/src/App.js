@@ -23,9 +23,7 @@ class App extends Component {
 
 
   componentDidMount() {
-
     this.getData("dog");
-
   }
   getData = (resource) => {
     let url = "https://dog-e-date.herokuapp.com/" + resource;
@@ -37,15 +35,37 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         this.setState({ dogList: data.data });
       })
       .catch(err => {
         console.log("Error", err);
       });
   }
-  render() {
 
+  handleLoginSubmit = (e) => {
+    e.preventDefault()
+    let data = GetFormData(e)
+
+    if (!e.target.checkValidity()) {
+      this.setState({ inputError: true })
+      return;
+    }
+    console.log(data.username)
+    const url = "https://dog-e-date.herokuapp.com/user/" + data.username
+    fetch(url).then(res => res.json()).then(res => {
+      console.log(res)
+      this.setState({ user: res, loginAttempt: data, submitFormSuccessful: true })
+    }).catch(err => {
+      console.log(err)
+      this.setState({ submitFormSuccessful: false })
+    })
+  }
+  // checkPassword = () {
+  //   formPassword = this.state.loginAttempt.checkPassword
+  //   userPass = this.state.user.
+  // }
+  render() {
+    console.log(this.state.dogList)
 
     return (
       <div className="body-wrapper">
@@ -83,7 +103,7 @@ class App extends Component {
             <Route
               path="/login/"
               render={() => (
-                <Login />
+                <Login handleSubmit={this.handleLoginSubmit} inputError={this.state.inputError} />
               )}
             />
 
@@ -97,7 +117,7 @@ class App extends Component {
               path="/dog-park/"
               render={() => (
                 // null
-                <DogPark dogList={this.state.dogList} />
+                <DogPark user="secondaryfun" dogList={this.state.dogList} />
               )}
             />
             <Route
