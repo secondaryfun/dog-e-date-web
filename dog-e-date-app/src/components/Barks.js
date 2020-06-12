@@ -45,8 +45,8 @@ export default class App extends Component {
  
     componentDidMount() {
        
-        let dogUrl = "https://dog-e-date.herokuapp.com/dog"
-        let messagesUrl = "https://dog-e-date.herokuapp.com/message"
+        let dogUrl = "http://dog-e-date.herokuapp.com/dog"
+        let messagesUrl = "http://dog-e-date.herokuapp.com/message"
     
         fetch(dogUrl, {
           headers: {
@@ -184,6 +184,7 @@ export default class App extends Component {
                         <button className="send" type="submit">Send</button>
                      </form>
                 </div>
+                {console.log(this.props.user)}
             </div>
         )
     }
