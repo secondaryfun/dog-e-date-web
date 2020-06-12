@@ -59,30 +59,30 @@ export default class Kennel extends Component {
     }
   }
   componentDidMount() {
-    this.setState({
-      dogListFeed: dogListSample,
-    }, () => {
-      this.setState({ currentDog: this.state.dogListFeed[this.getNext()] })
-    })
-
-    // let url = "https://dog-e-date.herokuapp.com/dog"
-
-    // fetch(url, {
-    //   headers: {
-    //     Accept: "application/json",
-    //   }
+    // this.setState({
+    //   dogListFeed: dogListSample,
+    // }, () => {
+    //   this.setState({ currentDog: this.state.dogListFeed[this.getNext()] })
     // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data)
-    //     this.setState({
-    //       dogListFeed: data,
-    //       currentDog: data[0]
-    //     })
-    //   })
-    //   .catch(err => {
-    //     console.log("Error", err);
-    //   });
+
+    let url = "https://dog-e-date.herokuapp.com/dog"
+
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        this.setState({
+          dogListFeed: data,
+          currentDog: data[0]
+        })
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
   }
   handleIgnore = e => {
     this.updateDog(false)
@@ -133,7 +133,7 @@ export default class Kennel extends Component {
         <div className="modal__info-box">
           <header className="modal__info-box__header">
             <Link to={"/kennel/"} style={this.state.linkStyle} >
-              <div className="icon_kennel">Kennel</div>
+              <div className="icon">Kennel</div>
             </Link>
             <Link to={"/"} style={this.state.linkStyle} >
               <div className="icon_homepage">Home</div>
