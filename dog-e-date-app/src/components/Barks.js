@@ -42,47 +42,55 @@ export default class App extends Component {
             messagesFrom: []
         }
     };
- 
+
     componentDidMount() {
-       
+
         let dogUrl = "http://dog-e-date.herokuapp.com/dog"
         let messagesUrl = "http://dog-e-date.herokuapp.com/message"
-    
-        fetch(dogUrl, {
-          headers: {
-            Accept: "application/json",
-          }
-        })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data)
-            this.setState({
-              dogs: data
-            })
-          })
-          .catch(err => {
-            console.log("Error", err);
-          });
+        this.getMatches()
 
-          fetch(messagesUrl, {
+        fetch(dogUrl, {
             headers: {
-              Accept: "application/json",
+                Accept: "application/json",
             }
-          })
+        })
             .then(res => res.json())
             .then(data => {
-              console.log(data)
-              this.setState({
-                messages: data
-              })
+                console.log(data)
+                this.setState({
+                    dogs: data
+                })
             })
             .catch(err => {
-              console.log("Error", err);
+                console.log("Error", err);
+            });
+
+        fetch(messagesUrl, {
+            headers: {
+                Accept: "application/json",
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    messages: data
+                })
+            })
+            .catch(err => {
+                console.log("Error", err);
             });
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        // this.getMatches()
+
+    }
+
+
     getMatches = () => {
         let yourMatches = []
+        console.log(this.props.user[0])
         for (let i = 0; i < this.state.dogs.length; i++) {
             for (let j = 0; j < this.state.dogs[i].likes.length; j++) {
                 if (this.state.dogs[i].likes[j] === userInfo._id) {
@@ -133,7 +141,7 @@ export default class App extends Component {
             }
             allMessages.push(<div className={nameOfClass}>
                 <h3>{this.state.messages[i].text}</h3>
-                </div>)
+            </div>)
         }
         return (allMessages)
     }
@@ -141,7 +149,7 @@ export default class App extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         let textMessage = this.state.message
-        yourMessages.push({text: textMessage})
+        yourMessages.push({ text: textMessage })
         this.setState({
             messages: yourMessages,
             message: ""
@@ -158,35 +166,34 @@ export default class App extends Component {
         return (
             <div className="content">
                 <div className="title"><h1>Bark Dashboard</h1></div>
-               <div className="matches">
-                   <div className="user">
-                       <h2>User 1</h2>
-                   </div>
-                   <div className="user">
-                       <h2>User 2</h2>
-                   </div>
-                   <div className="user">
-                       <h2>User 3</h2>
-                   </div>
-                   <div className="user">
-                       <h2>User 4</h2>
-                   </div>
-                   <div className="user">
-                       <h2>User 5</h2>
-                   </div>
-               </div>
-               <div className="messages">
-                   {this.displayMessages()}
-               </div>
-               <div className="reply">
+                <div className="matches">
+                    <div className="user">
+                        <h2>User 1</h2>
+                    </div>
+                    <div className="user">
+                        <h2>User 2</h2>
+                    </div>
+                    <div className="user">
+                        <h2>User 3</h2>
+                    </div>
+                    <div className="user">
+                        <h2>User 4</h2>
+                    </div>
+                    <div className="user">
+                        <h2>User 5</h2>
+                    </div>
+                </div>
+                <div className="messages">
+                    {this.displayMessages()}
+                </div>
+                <div className="reply">
                     <form onSubmit={this.handleSubmit}>
                         <input className="your-text" type="text" placeholder="Message" value={this.state.message} onChange={this.handleChange} />
                         <button className="send" type="submit">Send</button>
-                     </form>
+                    </form>
                 </div>
                 {console.log(this.props.user)}
             </div>
         )
     }
 }
-

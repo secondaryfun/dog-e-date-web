@@ -103,6 +103,7 @@ class App extends Component {
               <Link to={"/update-user"} style={this.state.linkStyle} >
                 <button className="nav-button">UPDATE USER</button>
               </Link>
+
             </div>
 
             <Route
