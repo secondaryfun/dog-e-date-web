@@ -94,13 +94,6 @@ export default class AddUser extends Component {
                         <li className="form-li" >
                             <label htmlFor="checkpassword">Re-enter New Password:</label>
                             <input type="text" id="checkpassword" name="checkpassword" placeholder="Enter New Password" />
-<<<<<<< HEAD
-                        </li>
-                        <li className="form-li" >
-                            <label htmlFor="password">Old Password:</label>
-                            <input type="text" id="password" name="password" placeholder="Enter old password" />
-=======
->>>>>>> dev
                         </li>
                         <li className="form-li" >
                             <label htmlFor="password">Old Password:</label>

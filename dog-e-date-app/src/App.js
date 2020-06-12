@@ -26,11 +26,7 @@ class App extends Component {
     this.getUserData()
   }
   getUserData = () => {
-<<<<<<< HEAD
-    let url = "https://dog-e-date.herokuapp.com/user/" + "toddpacker"
-=======
     let url = "http://dog-e-date.herokuapp.com/user/" + "toddpacker"
->>>>>>> dev
 
     fetch(url, {
       headers: {
