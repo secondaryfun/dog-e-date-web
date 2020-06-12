@@ -133,7 +133,7 @@ export default class Kennel extends Component {
         <div className="modal__info-box">
           <header className="modal__info-box__header">
             <Link to={"/kennel/"} style={this.state.linkStyle} >
-              <div className="icon profile">Kennel</div>
+              <div className="icon">Kennel</div>
             </Link>
             <Link to={"/"} style={this.state.linkStyle} >
               <div className="icon homepage">Home</div>
