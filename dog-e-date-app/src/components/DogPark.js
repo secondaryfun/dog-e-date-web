@@ -42,7 +42,7 @@ export default class App extends Component {
                 console.log(this.props.dogList)
               return(
                 <div>
-                  <p onClick={this.updateLikes}>Like</p>
+                  <button onClick={this.updateLikes}>Like</button>
                   <p>{this.state.likes}</p>
 
                   <p>{this.props.dogList}</p>
