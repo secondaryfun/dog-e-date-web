@@ -108,20 +108,20 @@ export default class App extends Component {
 
     })
 
-    const url = "https://dog-e-date.herokuapp.com/dog" + this.state.currentDog["_id"]
-    fetch(url, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: data
-    }).then(res => res.json()).then(res => {
-      console.log(res)
-      this.setState({ formResults: res, submitFormSuccessful: true })
-    }).catch(err => {
-      console.log(err)
-      this.setState({ formResults: err, submitFormSuccessful: false })
-    })
+    // const url = "https://dog-e-date.herokuapp.com/dog" + this.state.currentDog["_id"]
+    // fetch(url, {
+    //   method: "put",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: data
+    // }).then(res => res.json()).then(res => {
+    //   console.log(res)
+    //   this.setState({ formResults: res, submitFormSuccessful: true })
+    // }).catch(err => {
+    //   console.log(err)
+    //   this.setState({ formResults: err, submitFormSuccessful: false })
+    // })
   }
 
   render() {
