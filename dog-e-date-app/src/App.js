@@ -179,7 +179,7 @@ class App extends Component {
             <Route
               path="/bark/"
               render={() => (
-                <Barks />
+                <Barks user={this.state.user} />
               )}
             />
             <Route
