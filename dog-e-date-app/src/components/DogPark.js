@@ -43,7 +43,7 @@ let dogListSample = [
   },
 ]
 
-export default class App extends Component {
+export default class Kennel extends Component {
   constructor(props) {
     super(props);
     this.state = {

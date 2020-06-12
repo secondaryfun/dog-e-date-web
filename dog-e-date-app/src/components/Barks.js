@@ -28,21 +28,25 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            messages: [],
+            messages: yourMessages,
+            message: ""
         }
     };
  
+
+
+
     displayMessages = () => {
         let allMessages = []
         let nameOfClass = ""
-        for (let i = 0; i < yourMessages.length; i++) {
+        for (let i = 0; i < this.state.messages.length; i++) {
             if (i % 2 === 0) {
                 nameOfClass = "text to"
             } else {
                 nameOfClass = "text from"
             }
             allMessages.push(<div className={nameOfClass}>
-                <h3>{yourMessages[i].text}</h3>
+                <h3>{this.state.messages[i].text}</h3>
                 </div>)
         }
         return (allMessages)
@@ -50,9 +54,18 @@ export default class App extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        let textMessage = e.target.value
+        let textMessage = this.state.message
         yourMessages.push({text: textMessage})
-        console.log(textMessage)
+        this.setState({
+            messages: yourMessages,
+            message: ""
+        })
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            message: e.target.value
+        })
     }
 
     render() {
@@ -81,7 +94,7 @@ export default class App extends Component {
                </div>
                <div className="reply">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="your-text" type="text" placeholder="Message" />
+                        <input className="your-text" type="text" placeholder="Message" value={this.state.message} onChange={this.handleChange} />
                         <button className="send" type="submit">Send</button>
                      </form>
                 </div>

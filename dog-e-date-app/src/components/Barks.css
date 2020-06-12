@@ -28,6 +28,7 @@
 
 .messages {
     grid-area: messages;
+    overflow: auto;
 }
 
 .text {
