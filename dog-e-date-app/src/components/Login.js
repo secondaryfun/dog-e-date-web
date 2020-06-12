@@ -28,11 +28,11 @@ export default class App extends Component {
                             <input type="text" id="password" name="password" required placeholder="Password" />
                         </li>
 
-                        <li>
+                        <ul>
                             <button className="form-button" type="submit">Login</button>
                             {this.props.inputError ? <p>Submit Error, Please check your form for required (*) items.</p> : <p>* Required</p>}
 
-                        </li>
+                        </ul>
                     </ul>
                 </form>
             </div>

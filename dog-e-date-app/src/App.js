@@ -137,7 +137,7 @@ class App extends Component {
                 <button className="nav-button">ADD DOG</button>
               </Link>
               <Link to={"/update-user"} style={this.state.linkStyle} >
-                <button className="nav-button">Update User</button>
+                <button className="nav-button">UPDATE USER</button>
               </Link>
             </div>
 
