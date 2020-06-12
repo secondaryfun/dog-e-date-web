@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import './Barks.css';
 
-
+let yourMessages = [
+    {
+        text: "hello there 1"
+    },
+    {
+        text: "hello there 2"
+    },
+    {
+        text: "hello there 3"
+    },
+    {
+        text: "hello there 4"
+    },
+    {
+        text: "hello there 5"
+    },
+    {
+        text: "hello there 6"
+    }
+]
 
 export default class App extends Component {
 
@@ -13,6 +32,29 @@ export default class App extends Component {
         }
     };
  
+    displayMessages = () => {
+        let allMessages = []
+        let nameOfClass = ""
+        for (let i = 0; i < yourMessages.length; i++) {
+            if (i % 2 === 0) {
+                nameOfClass = "text to"
+            } else {
+                nameOfClass = "text from"
+            }
+            allMessages.push(<div className={nameOfClass}>
+                <h3>{yourMessages[i].text}</h3>
+                </div>)
+        }
+        return (allMessages)
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        let textMessage = e.target.value
+        yourMessages.push({text: textMessage})
+        console.log(textMessage)
+    }
+
     render() {
         return (
             <div className="content">
@@ -35,27 +77,10 @@ export default class App extends Component {
                    </div>
                </div>
                <div className="messages">
-                   <div className="text from">
-                       <h3>message 1 from</h3>
-                   </div>
-                   <div className="text to">
-                       <h3>message 1 to</h3>
-                   </div>
-                   <div className="text from">
-                       <h3>message 2 from</h3>
-                   </div>
-                   <div className="text to">
-                       <h3>message 2 to</h3>
-                   </div>
-                   <div className="text from">
-                       <h3>message 3 from</h3>
-                   </div>
-                   <div className="text to">
-                       <h3>message 3 to</h3>
-                   </div>
+                   {this.displayMessages()}
                </div>
                <div className="reply">
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <input className="your-text" type="text" placeholder="Message" />
                         <button className="send" type="submit">Send</button>
                      </form>
