@@ -8,5 +8,5 @@ export default function GetFormData(e) {
         data1[formKey
         ] = data.get(key)
     }
-    return JSON.stringify(data1)
+    return data1
 }

@@ -16,3 +16,12 @@
     border: 1px solid #bbb;
     box-sizing: border-box;
   }
+
+  .info-box {
+    background: white;
+  }
+
+  .slider {
+    height: 50vh;
+    width: 20vw;
+  }
