@@ -7,6 +7,7 @@ import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
 import Barks from "./components/Barks.js";
+import GetFormData from "./FormData.js"
 
 class App extends Component {
 
@@ -20,7 +21,6 @@ class App extends Component {
     }
 
   };
-
 
   componentDidMount() {
     this.getData("dog");
