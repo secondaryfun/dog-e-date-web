@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './DogPark.css';
 import SliderImage from './SliderImage'
-import GetFormData from './FormData'
 
 
 let dogListSample = [
@@ -51,6 +50,12 @@ export default class App extends Component {
       dogListFeed: [],
       updated: false,
       currentDog: {},
+      defaultDog: {
+        "_id": "5ee29deaeb78be000433283c",
+        name: "Dog-e-Date Stand-In",
+        image: "https://www.keystonepuppies.com/wp-content/uploads/2018/10/Mastiff-Mix-Category.jpg",
+        tagline: "His eyes will steal your soul..."
+      }
     }
   }
   componentDidMount() {
@@ -80,13 +85,13 @@ export default class App extends Component {
     //   });
   }
   handleIgnore = e => {
-    updateDog(false)
-    getNext()
+    this.updateDog(false)
+    this.getNext()
   }
 
   handleLike = e => {
-    updateDog(false)
-    getNext()
+    this.updateDog(false)
+    this.getNext()
   }
 
   getNext = () => {
@@ -96,27 +101,33 @@ export default class App extends Component {
     })
   }
   updateDog = (like) => {
-
     let type
-    like ? type = "likes" : "ignores"
+    like ? type = type = "likes" : type = "ignores"
 
-    // const url = "https://dog-e-date.herokuapp.com/dog" + this.props.course["_id"]
-    // fetch(url, {
-    //   method: "put",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: data
-    // }).then(res => res.json()).then(res => {
-    //   console.log(res)
-    //   this.setState({ formResults: res, submitFormSuccessful: true })
-    // }).catch(err => {
-    //   console.log(err)
-    //   this.setState({ formResults: err, submitFormSuccessful: false })
-    // })
+    let data = JSON.stringify({
+
+    })
+
+    const url = "https://dog-e-date.herokuapp.com/dog" + this.state.currentDog["_id"]
+    fetch(url, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: data
+    }).then(res => res.json()).then(res => {
+      console.log(res)
+      this.setState({ formResults: res, submitFormSuccessful: true })
+    }).catch(err => {
+      console.log(err)
+      this.setState({ formResults: err, submitFormSuccessful: false })
+    })
   }
 
   render() {
+    console.log(this.currentDog)
+    let currentDog
+    this.state.currentDog ? currentDog = this.state.currentDog : currentDog = this.state.defaultDog
     return (
       <div className="modal-overlay" >
         <div className="modal__info-box">
@@ -131,7 +142,7 @@ export default class App extends Component {
               <div className="icon chat">Bark</div>
             </Link>
           </header>
-          <SliderImage dog={this.state.currentDog} />
+          <SliderImage dog={currentDog} />
           <footer className="modal__info-box__footer">
             <div className="icon like" onClick={this.handleIgnore} >-</div>
             <div className="icon like" onClick={this.handleLike} >+</div>

@@ -54,7 +54,7 @@ export default class AddDog extends Component {
             <div className="form-wrapper">
                 <h3 className="form-type">Add a new Dog</h3>
                 <form onSubmit={this.handleSubmit} noValidate >
-                    <input type="hidden" name="parent" value="PARENT-ID-PLACEHOLDER" />
+                    <input type="hidden" name="parent" value="Dog-e-date" />
                     <ul>
                         <li className="form-li" >
                             <label htmlFor="name">Name:</label>
@@ -83,7 +83,7 @@ export default class AddDog extends Component {
                         </li>
                         <li className="form-li" >
                             <label htmlFor="image">Enter Hosted Image URL:</label>
-                            <input type="text" id="image" name="image" require placeholder="http://mydog.jpg" defaultValue="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" />
+                            <input type="text" id="image" name="image" required placeholder="http://mydog.jpg" defaultValue="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" />
                         </li>
 
                         <li>

@@ -8,8 +8,15 @@
 }
 
 .slider-image-title {
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, 0.452);
     border-radius: 15px;
     position: relative;
     top: 85%;
+}
+.slider-image-tagline {
+    background: rgba(0, 0, 0, 0.472);
+    border-radius: 15px;
+    position: relative;
+    top: 82%;
+    font-size: 1rem;
 }
