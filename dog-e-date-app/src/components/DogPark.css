@@ -17,5 +17,57 @@
     box-sizing: border-box;
   } */
 
+  .modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(3, 179, 233, 0.616);
+    display: flex;
+    justify-content: center;
+}
 
+.modal__info-box {
+    width: 35vh;
+    height: 80vh;
+    position: absolute;
+    top: 10vh;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 15px 30px 30px rgba(0, 0, 0, .3);
+    border-radius: 15px;
+}
+
+.modal__info-box__body {
+    display: flex;
+    flex-flow: row wrap;
+}
       
+.icon {
+  background: blue;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-weight: 600;
+  border-radius: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+.icon:hover {
+  background: rgb(122, 121, 121);
+  color: black;
+  cursor: pointer;
+}
+
+.like {
+  font-size: 48px;
+}
+
+.modal__info-box header, .modal__info-box footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}

@@ -10,7 +10,6 @@ import Barks from "./components/Barks.js"
 import GetFormData from './FormData'
 
 let dogList = [
-
   {
     "_id": "5ee25a4e3389db00042d9499",
     "name": "Spot",
@@ -33,6 +32,17 @@ let dogList = [
     "__v": 0,
     "image": "https://www.washingtonian.com/wp-content/uploads/2018/10/marcus-wallis-471438-unsplash-2048x1536.jpg"
   },
+  {
+    "_id": "5ee25a4e3389db00042d9499",
+    "name": "Pantsless Monkey",
+    "parent": "Sue Smith",
+    "breed": "Pit Bull",
+    "info": "Super Friendly",
+    "age": 3,
+    "size": "M",
+    "__v": 0,
+    "image": "https://www.dogbreedinfo.com/images32/MastidoodleMastiffPoodleMixedBreedDogGordon4YearsOld.jpg"
+  },
 ]
 
 
@@ -44,11 +54,12 @@ class App extends Component {
     this.state = {
       imgs: [],
       dogList: [],
-
+      inputError: false,
+      user: {},
+      loginAttempt: {}
     }
 
   };
-
   componentDidMount() {
     this.getData("dog");
   }
@@ -62,7 +73,7 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ dogList: data.data });
+        this.setState({ dogList: data });
       })
       .catch(err => {
         console.log("Error", err);
@@ -105,7 +116,6 @@ class App extends Component {
           <div className="container">
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
-
               <Link to={"/dog-park/"} style={this.state.linkStyle} >
                 <button className="nav-button">Dog Park</button>
               </Link>
