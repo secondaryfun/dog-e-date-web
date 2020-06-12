@@ -3,46 +3,6 @@ import { Link } from "react-router-dom";
 import './DogPark.css';
 import SliderImage from './SliderImage'
 
-
-let dogListSample = [
-  {
-    "_id": "5ee25a4e3389db00042d9499",
-    "name": "Spot",
-    "parent": "Sue Smith",
-    "breed": "Pit Bull",
-    "info": "Super Friendly",
-    "age": 3,
-    "size": "M",
-    "__v": 0,
-    "likes": [],
-    "image": "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
-  },
-  {
-    "_id": "5ee25a4e3389db00042d9499",
-    "name": "Blue",
-    "parent": "Sue Smith",
-    "breed": "Pit Bull",
-    "info": "Super Friendly",
-    "age": 3,
-    "size": "M",
-    "__v": 0,
-    "likes": [],
-    "image": "https://www.washingtonian.com/wp-content/uploads/2018/10/marcus-wallis-471438-unsplash-2048x1536.jpg"
-  },
-  {
-    "_id": "5ee25a4e3389db00042d9499",
-    "name": "Pantsless Monkey",
-    "parent": "Sue Smith",
-    "breed": "Pit Bull",
-    "info": "Super Friendly",
-    "age": 3,
-    "size": "M",
-    "__v": 0,
-    "likes": [],
-    "image": "https://www.dogbreedinfo.com/images32/MastidoodleMastiffPoodleMixedBreedDogGordon4YearsOld.jpg"
-  },
-]
-
 export default class Kennel extends Component {
   constructor(props) {
     super(props);

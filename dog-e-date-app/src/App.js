@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link } from "react-router-dom";
-  // import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import AddDog from "./components/AddDog";
 import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
+import EditUser from "./components/EditUser.js"
 import Barks from "./components/Barks.js"
 import GetFormData from './FormData'
 import Kennel from "./components/Kennel.js"
@@ -135,6 +136,9 @@ class App extends Component {
               <Link to={"/add-dog"} style={this.state.linkStyle} >
                 <button className="nav-button">ADD DOG</button>
               </Link>
+              <Link to={"/update-user"} style={this.state.linkStyle} >
+                <button className="nav-button">Update User</button>
+              </Link>
             </div>
 
             <Route
@@ -148,6 +152,12 @@ class App extends Component {
               path="/signup/"
               render={() => (
                 < AddUser dogList={this.state.dogList} />
+              )}
+            />
+            <Route
+              path="/update-user/"
+              render={() => (
+                < EditUser user={this.state.user} />
               )}
             />
             <Route
