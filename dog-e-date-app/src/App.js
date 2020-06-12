@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.min.css";
+  // import "bootstrap/dist/css/bootstrap.min.css";
 import AddDog from "./components/AddDog";
 import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
 import Barks from "./components/Barks.js"
 import GetFormData from './FormData'
+import Kennel from "./components/Kennel.js"
 
 let dogList = [
   {
@@ -52,7 +53,9 @@ class App extends Component {
       imgs: [],
       dogList: [],
       inputError: false,
-      user: {},
+      user: {
+        username: "secondaryfun"
+      },
       loginAttempt: {}
     }
   }
@@ -95,10 +98,12 @@ class App extends Component {
       this.setState({ submitFormSuccessful: false })
     })
   }
+
   // checkPassword = () {
   //   formPassword = this.state.loginAttempt.checkPassword
   //   userPass = this.state.user.
   // }
+
   render() {
     return (
       <div className="body-wrapper">
@@ -148,6 +153,7 @@ class App extends Component {
             <Route
               path="/dog-park/"
               render={() => (
+
                 // null
                 <DogPark user={this.state.user} />
               )}
@@ -155,8 +161,9 @@ class App extends Component {
             <Route
               path="/kennel/"
               render={() => (
-                null
-                // <Kennel userInfo={this.state.userInfo} />
+
+                <Kennel user={this.state.user} />
+
               )}
             />
             <Route
