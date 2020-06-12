@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Kennel.css'
 
 export default class Kennel extends Component {
@@ -12,24 +12,24 @@ export default class Kennel extends Component {
   }
 
   componentDidMount() {
-        this.getUserData()
-    }
-    getUserData = () => {
+    this.getUserData()
+  }
+  getUserData = () => {
 
-        let url = `https://dog-e-date.herokuapp.com/user`
-        fetch(url, {
-            headers: {
-                Accept: "application/json",
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                this.setState({ userData: data });
-            })
-            .catch(err => {
-                console.log("Error", err);
-            });
-    }
+    let url = `http://dog-e-date.herokuapp.com/user`
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ userData: data });
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
+  }
 
   render() {
     console.log(this.state.userData)
@@ -43,12 +43,12 @@ export default class Kennel extends Component {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </p>
         </div>
         <div className="bottom">
-            <div className="pic1"></div>
-            <div className="pic2"></div>
-            <div className="pic3"></div>
+          <div className="pic1"></div>
+          <div className="pic2"></div>
+          <div className="pic3"></div>
         </div>
 
-    </div>)
+      </div>)
   }
 
 }

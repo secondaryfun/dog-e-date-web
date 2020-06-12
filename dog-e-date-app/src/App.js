@@ -26,7 +26,7 @@ class App extends Component {
     this.getUserData()
   }
   getUserData = () => {
-    let url = "https://dog-e-date.herokuapp.com/user/" + "toddpacker"
+    let url = "http://dog-e-date.herokuapp.com/user/" + "toddpacker"
 
     fetch(url, {
       headers: {
@@ -52,7 +52,7 @@ class App extends Component {
       return;
     }
     console.log(data.username)
-    const url = "https://dog-e-date.herokuapp.com/user/" + data.username
+    const url = "http://dog-e-date.herokuapp.com/user/" + data.username
     fetch(url).then(res => res.json()).then(res => {
       console.log(res)
       this.setState({ user: res, loginAttempt: data, submitFormSuccessful: true })
@@ -143,7 +143,7 @@ class App extends Component {
             <Route
               path="/bark/"
               render={() => (
-                <Barks />
+                <Barks user={this.state.user} />
               )}
             />
             <Route
