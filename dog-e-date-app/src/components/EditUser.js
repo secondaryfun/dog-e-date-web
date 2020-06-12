@@ -71,6 +71,8 @@ export default class AddUser extends Component {
     }
     render() {
         console.log(this.state.userData)
+        let user
+        this.state.userData ? user = this.state.userData : user = ""
         return (
             <div className="form-wrapper">
                 <h3 className="form-type">Create an Account</h3>
@@ -79,19 +81,23 @@ export default class AddUser extends Component {
                     <ul>
                         <li className="form-li" >
                             <label htmlFor="email">Email:</label>
-                            <input type="text" id="email" name="email" placeholder="name@place.com" defaultValue={"pants"} />
+                            <input type="text" id="email" name="email" placeholder={user ? user.email : ""} defaultValue={user ? user.email : ""} />
                         </li>
                         <li className="form-li" >
                             <label htmlFor="username">Username:</label>
-                            <input type="text" id="username" name="username" required placeholder="Username" />
+                            <input type="text" id="username" name="username" required placeholder={user ? user.username : ""} defaultValue={user ? user.username : ""} />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="password">Password:</label>
-                            <input type="text" id="password" name="password" placeholder="name@place.com" />
+                            <label htmlFor="newPassword">New Password:</label>
+                            <input type="text" id="newPassword" name="password" placeholder="Enter New Password" />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="checkpassword">Re-enter Password:</label>
-                            <input type="text" id="checkpassword" name="checkpassword" placeholder="name@place.com" />
+                            <label htmlFor="checkpassword">Re-enter New Password:</label>
+                            <input type="text" id="checkpassword" name="checkpassword" placeholder="Enter New Password" />
+                        </li>
+                        <li className="form-li" >
+                            <label htmlFor="password">Old Password:</label>
+                            <input type="text" id="password" name="password" placeholder="Enter old password" />
                         </li>
                         {/*<li className="form-li" >
                             <label htmlFor="firstName">First Name:</label>

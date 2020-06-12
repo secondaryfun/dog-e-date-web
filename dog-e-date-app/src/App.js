@@ -11,42 +11,6 @@ import Barks from "./components/Barks.js"
 import GetFormData from './FormData'
 import Kennel from "./components/Kennel.js"
 
-let dogList = [
-  {
-    "_id": "5ee25a4e3389db00042d9499",
-    "name": "Spot",
-    "parent": "Sue Smith",
-    "breed": "Pit Bull",
-    "info": "Super Friendly",
-    "age": 3,
-    "size": "M",
-    "__v": 0,
-    "image": "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
-  },
-  {
-    "_id": "5ee25a4e3389db00042d9499",
-    "name": "Blue",
-    "parent": "Sue Smith",
-    "breed": "Pit Bull",
-    "info": "Super Friendly",
-    "age": 3,
-    "size": "M",
-    "__v": 0,
-    "image": "https://www.washingtonian.com/wp-content/uploads/2018/10/marcus-wallis-471438-unsplash-2048x1536.jpg"
-  },
-  {
-    "_id": "5ee25a4e3389db00042d9499",
-    "name": "Pantsless Monkey",
-    "parent": "Sue Smith",
-    "breed": "Pit Bull",
-    "info": "Super Friendly",
-    "age": 3,
-    "size": "M",
-    "__v": 0,
-    "image": "https://www.dogbreedinfo.com/images32/MastidoodleMastiffPoodleMixedBreedDogGordon4YearsOld.jpg"
-  },
-]
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -54,18 +18,15 @@ class App extends Component {
       imgs: [],
       dogList: [],
       inputError: false,
-      user: {
-        username: "secondaryfun"
-      },
+      user: {},
       loginAttempt: {}
     }
   }
   componentDidMount() {
-    this.getData("dog");
-    this.setState({ user: "harryloveshounds" })
+    this.getUserData()
   }
-  getData = (resource) => {
-    let url = "https://dog-e-date.herokuapp.com/" + resource;
+  getUserData = () => {
+    let url = "https://dog-e-date.herokuapp.com/user/" + "toddpacker"
 
     fetch(url, {
       headers: {
@@ -74,7 +35,8 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ dogList: data });
+        console.log(data)
+        this.setState({ user: data });
       })
       .catch(err => {
         console.log("Error", err);
@@ -106,6 +68,7 @@ class App extends Component {
   // }
 
   render() {
+    console.log(this.state.user)
     return (
       <div className="body-wrapper">
         <div className="body-overlay" >
@@ -123,6 +86,7 @@ class App extends Component {
 
               <Link to={"/kennel/"} style={this.state.linkStyle} >
                 <button className="nav-button Page">PROFILE</button>
+                <img src={this.state.user.userImage} alt={this.state.user.username} />
               </Link>
               <Link to={"/bark/"} style={this.state.linkStyle} >
                 <button className="nav-button Page">BARKS</button>
