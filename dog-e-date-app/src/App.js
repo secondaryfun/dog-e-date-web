@@ -6,8 +6,10 @@ import AddDog from "./components/AddDog";
 import Login from "./components/Login.js";
 import DogPark from "./components/DogPark.js";
 import AddUser from "./components/AddUser.js"
+import EditUser from "./components/EditUser.js"
 import Barks from "./components/Barks.js"
 import GetFormData from './FormData'
+import Kennel from "./components/Kennel.js"
 
 let dogList = [
   {
@@ -52,7 +54,9 @@ class App extends Component {
       imgs: [],
       dogList: [],
       inputError: false,
-      user: {},
+      user: {
+        username: "secondaryfun"
+      },
       loginAttempt: {}
     }
   }
@@ -95,10 +99,12 @@ class App extends Component {
       this.setState({ submitFormSuccessful: false })
     })
   }
+
   // checkPassword = () {
   //   formPassword = this.state.loginAttempt.checkPassword
   //   userPass = this.state.user.
   // }
+
   render() {
     return (
       <div className="body-wrapper">
@@ -112,14 +118,14 @@ class App extends Component {
             <h1>WELCOME TO YOUR NEXT DOG-E-DATE</h1>
             <div className="button-container">
               <Link to={"/dog-park/"} style={this.state.linkStyle} >
-                <button className="nav-button">Dog Park</button>
+                <button className="nav-button">DOG PARK</button>
               </Link>
 
               <Link to={"/kennel/"} style={this.state.linkStyle} >
-                <button className="nav-button Page">Profile</button>
+                <button className="nav-button Page">PROFILE</button>
               </Link>
               <Link to={"/bark/"} style={this.state.linkStyle} >
-                <button className="nav-button Page">Barks</button>
+                <button className="nav-button Page">BARKS</button>
               </Link>
               <Link to={"/login/"} style={this.state.linkStyle} >
                 <button className="nav-button">LOG IN</button>
@@ -129,6 +135,9 @@ class App extends Component {
               </Link>
               <Link to={"/add-dog"} style={this.state.linkStyle} >
                 <button className="nav-button">ADD DOG</button>
+              </Link>
+              <Link to={"/update-user"} style={this.state.linkStyle} >
+                <button className="nav-button">Update User</button>
               </Link>
             </div>
 
@@ -146,8 +155,15 @@ class App extends Component {
               )}
             />
             <Route
+              path="/update-user/"
+              render={() => (
+                < EditUser user={this.state.user} />
+              )}
+            />
+            <Route
               path="/dog-park/"
               render={() => (
+
                 // null
                 <DogPark user={this.state.user} />
               )}
@@ -155,8 +171,9 @@ class App extends Component {
             <Route
               path="/kennel/"
               render={() => (
-                null
-                // <Kennel userInfo={this.state.userInfo} />
+
+                <Kennel user={this.state.user} />
+
               )}
             />
             <Route
