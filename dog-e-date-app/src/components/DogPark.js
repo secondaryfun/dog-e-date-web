@@ -100,6 +100,7 @@ export default class Kennel extends Component {
             <Link to={"/bark/"} style={this.state.linkStyle} >
               <div className="icon icon_chat">Bark</div>
             </Link>
+
           </header>
           <SliderImage dog={currentDog} />
           <footer className="modal__info-box__footer">
