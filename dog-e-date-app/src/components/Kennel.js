@@ -16,7 +16,7 @@ export default class Kennel extends Component {
   }
   getUserData = () => {
 
-    let url = `http://dog-e-date.herokuapp.com/user`
+    let url = `https://dog-e-date.herokuapp.com/user`
     fetch(url, {
       headers: {
         Accept: "application/json",

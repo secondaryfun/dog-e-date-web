@@ -25,7 +25,7 @@ export default class Kennel extends Component {
     //   this.setState({ currentDog: this.state.dogListFeed[this.getNext()] })
     // })
 
-    let url = "http://dog-e-date.herokuapp.com/dog"
+    let url = "https://dog-e-date.herokuapp.com/dog"
 
     fetch(url, {
       headers: {
