@@ -85,7 +85,6 @@ export default class Kennel extends Component {
   }
 
   render() {
-    console.log(this.currentDog)
     let currentDog
     this.state.currentDog ? currentDog = this.state.currentDog : currentDog = this.state.defaultDog
     return (

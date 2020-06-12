@@ -102,7 +102,8 @@ html, body, #root, .App {
 }
 .header__logo {
   height: 6rem;
-  width: auto;
+  height: 6rem;
+  background: url('/images/paws-logo.png')
 }
 .nav-button {
   padding: 20px 20px;
@@ -152,4 +153,3 @@ html, body, #root, .App {
 .nav-button:hover {
   border-bottom: solid black;
 }
-
