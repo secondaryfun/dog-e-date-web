@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 30px;
+  margin-bottom: 30px;
 }
 
 
@@ -28,7 +29,10 @@
   height: 300px;
   width: 300px;
   background-color: blue;
-  border: 2px solid #fff;
+  border: 4px solid #fff;
+  margin-left: 10px;
+  margin-top: 45px;
+    border-radius: 8px;
 }
 
 .sidekick-photo{
@@ -36,8 +40,45 @@
   background-size: 100px 100px;
   width: 100px;
   height: 100px;
-  border: 5px solid #fff;
+  border: 4px solid #fff;
   border-radius: 50%;
 }
 
+.bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100%;
+  width: 120px;
+}
 
+.pic1{
+  border: 4px solid #fff;
+  background-image: url("https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  width: 110px;
+  border-radius: 8px;
+
+}
+
+.pic2{
+  border: 4px solid #fff;
+  background-image: url("https://i.insider.com/5df126b679d7570ad2044f3e?width=1100&format=jpeg&auto=webp");
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  width: 110px;
+    border-radius: 8px;
+}
+
+.pic3{
+  border: 4px solid #fff;
+  background-image: url("https://www.washingtonian.com/wp-content/uploads/2018/10/marcus-wallis-471438-unsplash-2048x1536.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  width: 110px;
+    border-radius: 8px;
+}
