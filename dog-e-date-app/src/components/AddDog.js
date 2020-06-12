@@ -61,7 +61,7 @@ export default class AddDog extends Component {
                             <input type="text" id="name" name="name" required placeholder="Snuffles" />
                         </li>
                         <li className="form-li" >
-                            <label htmlFor="tagline">Name:</label>
+                            <label htmlFor="tagline">Give your dog a tagline:</label>
                             <input type="text" id="tagline" name="tagline" required placeholder="Squirrels fear his mighty woof." />
                         </li>
                         <li className="form-li" >
