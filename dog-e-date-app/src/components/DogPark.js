@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './DogPark.css';
 import SliderImage from './SliderImage'
+import GetFormData from './FormData'
+
 
 let dogListSample = [
   {
@@ -46,19 +48,16 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: 0,
-      imgs: [],
-      dogList: [],
+      dogListFeed: [],
       updated: false,
       currentDog: {},
-      index: 0,
     }
   }
   componentDidMount() {
     this.setState({
-      dogList: dogListSample,
+      dogListFeed: dogListSample,
     }, () => {
-      this.setState({ currentDog: this.state.dogList[this.getNext()] })
+      this.setState({ currentDog: this.state.dogListFeed[this.getNext()] })
     })
 
     // let url = "https://dog-e-date.herokuapp.com/dog"
@@ -72,7 +71,7 @@ export default class App extends Component {
     //   .then(data => {
     //     console.log(data)
     //     this.setState({
-    //       dogList: data,
+    //       dogListFeed: data,
     //       currentDog: data[0]
     //     })
     //   })
@@ -81,39 +80,42 @@ export default class App extends Component {
     //   });
   }
   handleIgnore = e => {
-    this.setState({
-      currentDog: this.state.dogList[this.getNext()]
-    })
+    updateDog(false)
+    getNext()
   }
-  handleLike = e => {
-    this.setState({
-      currentDog: this.state.dogList[this.getNext()]
-    })
-  }
-  // updateLike = (like) => {
-  //   let type
-  //   like ? type = "likes" : "ignores"
-  //   const url = "https://dog-e-date.herokuapp.com/dog" + this.props.course["_id"]
-  //   fetch(url, {
-  //     method: "put",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: data
-  //   }).then(res => res.json()).then(res => {
-  //     console.log(res)
-  //     this.setState({ formResults: res, submitFormSuccessful: true })
-  //   }).catch(err => {
-  //     console.log(err)
-  //     this.setState({ formResults: err, submitFormSuccessful: false })
-  //   })
-  // }
 
+  handleLike = e => {
+    updateDog(false)
+    getNext()
+  }
 
   getNext = () => {
-    let i = Math.floor(this.state.dogList.length * Math.random())
-    return i
+    let i = Math.floor(this.state.dogListFeed.length * Math.random())
+    this.setState({
+      currentDog: this.state.dogListFeed[i]
+    })
   }
+  updateDog = (like) => {
+
+    let type
+    like ? type = "likes" : "ignores"
+
+    // const url = "https://dog-e-date.herokuapp.com/dog" + this.props.course["_id"]
+    // fetch(url, {
+    //   method: "put",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: data
+    // }).then(res => res.json()).then(res => {
+    //   console.log(res)
+    //   this.setState({ formResults: res, submitFormSuccessful: true })
+    // }).catch(err => {
+    //   console.log(err)
+    //   this.setState({ formResults: err, submitFormSuccessful: false })
+    // })
+  }
+
   render() {
     return (
       <div className="modal-overlay" >
