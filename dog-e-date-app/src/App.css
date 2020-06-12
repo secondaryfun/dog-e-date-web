@@ -75,6 +75,7 @@ h1,h2,h3,h4,h5,h6,p, header {
   margin-bottom: 1rem
 }
 
+
 html, body, #root, .App {
   height: 100%;
   color: white;
