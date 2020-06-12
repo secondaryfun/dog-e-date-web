@@ -52,7 +52,7 @@ export default class AddDog extends Component {
         const dogSizes = [{ size: "S" }, { size: "M" }, { size: "L" }, { size: "XL" }]
         return (
             <div className="form-wrapper">
-                <h3 className="form-type">Add a new Dog</h3>
+                <h3 className="form-type">Add a New Dog</h3>
                 <form onSubmit={this.handleSubmit} noValidate >
                     <input type="hidden" name="parent" value="Dog-e-date" />
                     <ul>
@@ -90,12 +90,12 @@ export default class AddDog extends Component {
                             <input type="text" id="image" name="image" required placeholder="http://mydog.jpg" defaultValue="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" />
                         </li>
 
-                        <li>
+                        <ul>
                             <button className="form-button" type="submit">Add Dog</button>
                             {this.state.inputError ? <p>Submit Error, Please check your form for required (*) items.</p> : <p>* Required</p>}
                             {this.state.formResults ? <p>{this.state.formResults.title} Successfully Created!</p> : <p></p>}
 
-                        </li>
+                        </ul>
                     </ul>
                 </form>
             </div>
